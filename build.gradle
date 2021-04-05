@@ -30,6 +30,9 @@ dependencies {
     //jpa and mysql
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'mysql:mysql-connector-java'
+
+    // mustache
+    compile 'org.springframework.boot:spring-boot-starter-mustache'
 }
 
 test {

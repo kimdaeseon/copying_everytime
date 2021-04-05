@@ -22,14 +22,14 @@ public class PostRepositoryTest {
         String title = "title";
         String context = "context";
         String author = "author";
-        postRepository.save(Post.builder().author(author).title(title).context(context).build());
+        postRepository.save(Post.builder().author(author).title(title).content(context).build());
 
         List<Post> postList = postRepository.findAll();
 
         Post post = postList.get(0);
         assertThat(post.getAuthor()).isEqualTo(author);
         assertThat(post.getTitle()).isEqualTo(title);
-        assertThat(post.getContext()).isEqualTo(context);
+        assertThat(post.getContent()).isEqualTo(context);
 
     }
 }
