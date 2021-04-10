@@ -1,6 +1,6 @@
-var main = {
+const main = {
     init : function (){
-        var _this = this;
+        const _this = this;
         $('#btn-save').on('click', function(){
             _this.save();
         })
@@ -12,10 +12,11 @@ var main = {
         })
     },
     save : function (){
-        var data = {
+        const data = {
             title: $('#title').val(),
             author: $('#author').val(),
-            content: $('#content').val()
+            content: $('#content').val(),
+            board: $('#board').text()
         }
 
         $.ajax({
@@ -32,11 +33,11 @@ var main = {
         })
     },
     update : function(){
-        var data = {
+        const data = {
             title: $('#title').val(),
             content: $('#content').val()
         }
-        var id = $('#id').val()
+        const id = $('#id').val()
         $.ajax({
             type: 'PUT',
             url: '/api/v1/posts/' + id,
@@ -51,7 +52,7 @@ var main = {
         })
     },
     delete : function(){
-        var id = $('#id').val()
+        const id = $('#id').val()
         $.ajax({
             type: 'DELETE',
             url: '/api/v1/posts/' + id,

@@ -1,5 +1,6 @@
 package com.practice.kimdaeseon.web.dto;
 
+import com.practice.kimdaeseon.domain.board.Board;
 import com.practice.kimdaeseon.domain.post.Post;
 import lombok.Getter;
 import lombok.Builder;
@@ -11,15 +12,23 @@ public class PostSaveRequestDto {
     private String title;
     private String author;
     private String content;
+    private String board;
 
     @Builder
-    public PostSaveRequestDto(String title, String author, String content){
+    public PostSaveRequestDto(String title, String author, String content, String board){
         this.title = title;
         this.author = author;
         this.content = content;
+        this.board = board;
     }
 
     public Post toEntity(){
-        return Post.builder().title(title).author(author).content(content).build();
+        System.out.println(title);
+        System.out.println(author);
+        System.out.println(content);
+        System.out.println(board);
+
+
+        return Post.builder().title(title).author(author).content(content).board(board).build();
     }
 }

@@ -19,11 +19,13 @@ public class IndexController {
     @GetMapping("/")
     public String index(Model model){
         model.addAttribute("post", postService.findAllPost());
+        model.addAttribute("board", "NomalBoard");
         return "index";
     }
 
     @GetMapping("/post/save")
-    public String postSave(){
+    public String postSave(Model model){
+        model.addAttribute("board", "NomalBoard");
         return "post-save";
     }
 }

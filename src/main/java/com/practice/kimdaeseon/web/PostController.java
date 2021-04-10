@@ -21,7 +21,6 @@ public class PostController {
 
     @PostMapping("/api/v1/post/save")
     public Long save(@RequestBody PostSaveRequestDto requestDto){
-
         return postService.save(requestDto);
     }
 
