@@ -1,8 +1,11 @@
 const main = {
     init : function (){
         const _this = this;
-        $('#btn-save').on('click', function(){
-            _this.save();
+        $('#btn-post-save').on('click', function(){
+            _this.post_save();
+        })
+        $('#btn-board-save').on('click', function(){
+            _this.board_save();
         })
         $('#btn-update').on('click', function(){
             _this.update();
@@ -11,7 +14,7 @@ const main = {
             _this.delete();
         })
     },
-    save : function (){
+    post_save : function (){
         const data = {
             title: $('#title').val(),
             author: $('#author').val(),
@@ -27,7 +30,24 @@ const main = {
             data: JSON.stringify(data)
         }).done(function(){
             alert('글이 등록되었습니다. ')
-            window.location.href = '/'
+            window.location.href = '/boards/' + data.board
+        }).fail(function (error) {
+            alert(JSON.stringify(error))
+        })
+    },
+    board_save : function (){
+        const data = {
+            name: $('#board_name').val()
+        }
+        $.ajax({
+            type: 'POST',
+            url: '/api/v1/board/save',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        }).done(function(){
+            alert('게시판이 등록되었습니다. ')
+            window.location.href = '/board_list'
         }).fail(function (error) {
             alert(JSON.stringify(error))
         })

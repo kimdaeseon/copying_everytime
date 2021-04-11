@@ -15,5 +15,4 @@ public class PostListResponseDto {
         this.title = entity.getTitle();
         this.author = entity.getAuthor();
     }
-
 }

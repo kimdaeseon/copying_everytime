@@ -8,8 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.practice.kimdaeseon.domain.post.Post;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,6 +24,9 @@ public class PostService {
     @Transactional(readOnly = true)
     public List<PostListResponseDto> findAllPost(){
         return postRepository.findAllDesc().stream().map(PostListResponseDto::new).collect(Collectors.toList());
+    }
+    public List<PostListResponseDto> findPostByBoardName(String boardName){
+        return postRepository.findPostByBoardName(boardName).stream().map(PostListResponseDto::new).collect(Collectors.toList());
     }
 
 }
