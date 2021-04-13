@@ -27,7 +27,6 @@
         <table class="table table-horizontal table-bordered">
             <thead class="thead-strong">
             <tr>
-                <th>게시글</th>
                 <th>제목</th>
                 <th>작성자</th>
                 <th>최종수정일</th>
@@ -36,14 +35,16 @@
             <tbody id="tbody">
             {{#post}}
                 <tr>
-                    <td>{{id}}</td>
                     <td><a href="/posts/update/{{id}}">{{title}}</a></td>
                     <td>{{author}}</td>
-                    <!---<td></td>--->
+                    <td>{{modifiedDate}}</td>
                 </tr>
             {{/post}}
             </tbody>
         </table>
+        {{#number_of_post}}
+            <a href="/boards/{{board}}/{{.}}">{{.}}</a>
+        {{/number_of_post}}
     </div>
 </div>
 

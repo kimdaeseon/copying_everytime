@@ -1,17 +1,16 @@
 package com.practice.kimdaeseon.domain.post;
 
-import com.practice.kimdaeseon.domain.board.Board;
+import com.practice.kimdaeseon.domain.BaseTimeEntity;
 import lombok.Getter;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ForeignKey;
 
 import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
 @Entity
-public class Post {
+public class Post extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="POST_ID")
