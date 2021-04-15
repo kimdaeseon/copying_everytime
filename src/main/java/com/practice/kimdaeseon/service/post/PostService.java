@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Service
 public class PostService {
-    private final PostRepository postRepository;
+    final private PostRepository postRepository;
 
     @Transactional
     public Long save(PostSaveRequestDto postSaveRequestDto){
