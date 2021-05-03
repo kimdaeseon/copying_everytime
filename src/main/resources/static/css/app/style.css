@@ -5,9 +5,48 @@
     margin-right: auto;
     width: 800px;
 }
+.divide-menu{
+    /*display:grid;*/
+    /*grid-template-columns: 1100px 300px;*/
+    /*border: solid 1px black;*/
+}
+.main-center-schedule{
+    padding: 0px;
+    border: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1300px;
+}
 .row{
-    float: right;
+    display: block;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 15px;
+}
+
+.subject-grid{
+    display: grid;
+    margin-top: 50px;
+    grid-template-columns: 100px 200px 200px 200px 200px 200px;
+}
+.time{
+    vertical-align: text-top;
+    height: 100px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    border-bottom: solid 1px black;
+}
+.day, .times{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    border: solid 1px black;
+
+}
+.category{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    border-bottom: solid 1px black;
 }

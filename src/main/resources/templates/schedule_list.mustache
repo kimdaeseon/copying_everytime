@@ -5,7 +5,7 @@
 <div class="main-center" style="text-align: center">
     <div class="col-md-12">
         <div class="row" >
-            <a href="/board/save" role="button" class="btn btn-primary"> 시간표 추가 </a>
+            <a href="/schedule/save" role="button" class="btn btn-primary"> 시간표 추가 </a>
         </div>
         <br>
         <!---목록 출력 영역 -->
@@ -18,13 +18,13 @@
             <tbody id="tbody">
             {{#schedule_list}}
                 <tr>
-                    <td><a href="/boards/{{name}}">{{name}}</a></td>
+                    <td><a href="/schedule/{{name}}">{{name}}</a></td>
                 </tr>
             {{/schedule_list}}
             </tbody>
         </table>
         {{#number_of_schedule}}
-            <a href="/board_list/{{.}}">{{.}}</a>
+            <a href="/schedule_list/{{.}}">{{.}}</a>
         {{/number_of_schedule}}
     </div>
 </div>

@@ -2,6 +2,7 @@ package com.practice.kimdaeseon.web;
 
 import com.practice.kimdaeseon.service.board.BoardService;
 import com.practice.kimdaeseon.service.post.PostService;
+import com.practice.kimdaeseon.service.schedule.ScheduleService;
 import com.practice.kimdaeseon.web.dto.PostListResponseDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ public class IndexController {
 
     final public PostService postService;
     final public BoardService boardService;
+    final public ScheduleService scheduleService;
     @GetMapping("/")
     public String home(Model model){
         return "home";
@@ -66,5 +68,29 @@ public class IndexController {
     @GetMapping("/board/save")
     public String boardSave(Model model){
         return "board-save";
+    }
+
+    @GetMapping("/schedule_list")
+    public String scheduleList(Model model){
+        model.addAttribute("schedule_list", scheduleService.findAllScheduleAt(0));
+        model.addAttribute("number_of_schedule", scheduleService.getScheduleSize());
+        return "schedule_list";
+    }
+    @GetMapping("/schedule_list/{scheduleNumber}")
+    public String scheduleList(@PathVariable int scheduleNumber,  Model model){
+        model.addAttribute("schedule_list", scheduleService.findAllScheduleAt(scheduleNumber - 1));
+        model.addAttribute("number_of_schedule", scheduleService.getScheduleSize());
+        return "schedule_list";
+    }
+
+    @GetMapping("/schedule/save")
+    public String scheduleSave(Model model){
+        return "schedule_save";
+    }
+
+    @GetMapping("/schedule/{scheduleName}")
+    public String schedule(@PathVariable String scheduleName,Model model){
+        model.addAttribute("Schedule", scheduleName);
+        return "schedule";
     }
 }

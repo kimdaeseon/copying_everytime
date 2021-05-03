@@ -1,19 +1,22 @@
 package com.practice.kimdaeseon.web;
 
+import com.practice.kimdaeseon.service.schedule.ScheduleService;
+import com.practice.kimdaeseon.web.dto.ScheduleSaveRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
-@Controller
+@RestController
 public class ScheduleController {
 
-    @GetMapping("/schedule")
-    public String scheduleList(Model model){
-        model.addAttribute("schedule_list", null);
-        model.addAttribute("number_of_schedule", 1);
-        return "schedule_list";
+    private final ScheduleService scheduleService;
+
+    @PostMapping("/api/v1/schedule/save")
+    public Long save(@RequestBody ScheduleSaveRequestDto scheduleSaveRequestDto){
+        return scheduleService.save(scheduleSaveRequestDto);
     }
 }

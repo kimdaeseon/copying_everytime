@@ -1,0 +1,65 @@
+{{>layout/header}}
+
+<h1 style="text-align: center">{{Schedule}}</h1>
+<div class="main-center-schedule" style="text-align: center">
+    <div class="col-md-12">
+        <div class="row">
+            <a href="/{{Schedule}}/schedule/save" role="button" class="btn btn-primary"> 시간표 저장 </a>
+        </div>
+        <br>
+        <div class="divide-menu">
+            <div class="subject-grid">
+                <div class="times">
+                    <div class="category"> 시간</div>
+                    <div class="time">09:00</div>
+                    <div class="time">10:00</div>
+                    <div class="time">11:00</div>
+                    <div class="time">12:00</div>
+                    <div class="time">13:00</div>
+                    <div class="time">14:00</div>
+                    <div class="time">15:00</div>
+                    <div class="time">16:00</div>
+                    <div class="time">17:00</div>
+                    <div class="time">18:00</div>
+                    <div class="time">19:00</div>
+                    <div class="time">20:00</div>
+                    <div class="time">21:00</div>
+                    <div class="time">22:00</div>
+                </div>
+                <div class="day monday">
+                    <div class="category">월요일</div>
+                    <div style="height: 150px; background-color: brown">
+                        수업 예시 1
+                    </div>
+                    <div style="height: 250px"></div>
+                    <div style="height: 150px; background-color: yellow">
+                        수업 예시 2
+                    </div>
+                </div>
+
+                <div class="day tuesday">
+                    <div class="category">화요일</div>
+                </div>
+                <div class="day wednesday">
+                    <div class="category">수요일</div>
+                </div>
+
+                <div class="day thursday">
+                    <div class="category">목요일</div>
+                </div>
+                <div class="day friday">
+                    <div class="category">금요일</div>
+                </div>
+            </div>
+<!--            <div class="blind">-->
+<!--                <button href="/board/save" class="blind-button btn-primary"> 과목 목록 열기 </button>-->
+<!--                <div>과목 목록 예시</div>-->
+<!--            </div>-->
+        </div>
+
+    </div>
+</div>
+
+
+
+{{>layout/footer}}

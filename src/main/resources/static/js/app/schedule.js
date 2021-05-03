@@ -1,11 +1,17 @@
-const post = {
+$(document).ready(function(){
+   $('.blind-button').click(function(){
+       $('.blind').animate({width:"toggle"}, 400);
+   })
+});
+
+const schedule = {
     init : function (){
         const _this = this;
         $('#btn-post-save').on('click', function(){
             _this.post_save();
         })
-        $('#btn-board-save').on('click', function(){
-            _this.board_save();
+        $('#btn-schedule-save').on('click', function(){
+            _this.schedule_save();
         })
         $('#btn-update').on('click', function(){
             _this.update();
@@ -35,19 +41,19 @@ const post = {
             alert(JSON.stringify(error))
         })
     },
-    board_save : function (){
+    schedule_save : function (){
         const data = {
-            name: $('#board_name').val()
+            name: $('#schedule_name').val()
         }
         $.ajax({
             type: 'POST',
-            url: '/api/v1/board/save',
+            url: '/api/v1/schedule/save',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function(){
-            alert('게시판이 등록되었습니다. ')
-            window.location.href = '/board_list'
+            alert('시간표가 등록되었습니다. ')
+            window.location.href = '/schedule_list'
         }).fail(function (error) {
             alert(JSON.stringify(error))
         })
@@ -87,4 +93,4 @@ const post = {
     }
 }
 
-post.init()
+schedule.init()
