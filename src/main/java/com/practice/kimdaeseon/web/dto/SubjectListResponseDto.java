@@ -10,6 +10,7 @@ public class SubjectListResponseDto {
     private Long startTime;
     private Long finishTime;
     private Long credit;
+    private String day;
 
     public SubjectListResponseDto(Subject entity){
         this.id = entity.getId();
@@ -17,5 +18,6 @@ public class SubjectListResponseDto {
         this.startTime = entity.getStartTime();
         this.finishTime = entity.getFinishTime();
         this.credit = entity.getCredit();
+        this.day = entity.getDay();
     }
 }

@@ -23,11 +23,14 @@ public class Subject {
 
     private Long credit;
 
+    private String day;
+
     @Builder
-    public Subject(String name, Long startTime, Long finishTime, Long credit){
+    public Subject(String name, Long startTime, Long finishTime, Long credit, String day){
         this.name = name;
         this.startTime = startTime;
         this.finishTime = finishTime;
         this.credit = credit;
+        this.day = day;
     }
 }

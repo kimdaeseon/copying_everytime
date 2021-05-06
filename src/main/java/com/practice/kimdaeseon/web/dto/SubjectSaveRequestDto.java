@@ -12,16 +12,18 @@ public class SubjectSaveRequestDto {
     private Long startTime;
     private Long finishTime;
     private Long credit;
+    private String day;
 
     @Builder
-    public SubjectSaveRequestDto(String name, Long startTime, Long finishTime, Long credit){
+    public SubjectSaveRequestDto(String name, Long startTime, Long finishTime, Long credit, String day){
         this.name = name;
         this.startTime = startTime;
         this.finishTime = finishTime;
         this.credit = credit;
+        this.day = day;
     }
 
     public Subject toEntity(){
-        return Subject.builder().name(this.name).startTime(this.startTime).finishTime(this.finishTime).credit(this.credit).build();
+        return Subject.builder().day(this.day).name(this.name).startTime(this.startTime).finishTime(this.finishTime).credit(this.credit).build();
     }
 }

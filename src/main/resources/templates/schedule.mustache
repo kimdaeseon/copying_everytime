@@ -1,10 +1,10 @@
 {{>layout/header}}
 
-<h1 style="text-align: center">{{Schedule}}</h1>
+<h1 style="text-align: center" class="schedule-name">{{Schedule}}</h1>
 <div class="main-center-schedule" style="text-align: center">
     <div class="col-md-12">
         <div class="row">
-            <a href="/{{Schedule}}/schedule/save" role="button" class="btn btn-primary"> 시간표 저장 </a>
+            <button class="btn btn-primary" id="btn-schedule-add"> 시간표 저장 </button>
         </div>
         <br>
         <div class="divide-menu">
@@ -28,13 +28,6 @@
                 </div>
                 <div class="day monday">
                     <div class="category">월요일</div>
-                    <div style="height: 150px; background-color: brown">
-                        수업 예시 1
-                    </div>
-                    <div style="height: 250px"></div>
-                    <div style="height: 150px; background-color: yellow">
-                        수업 예시 2
-                    </div>
                 </div>
 
                 <div class="day tuesday">
@@ -51,15 +44,21 @@
                     <div class="category">금요일</div>
                 </div>
             </div>
-<!--            <div class="blind">-->
-<!--                <button href="/board/save" class="blind-button btn-primary"> 과목 목록 열기 </button>-->
-<!--                <div>과목 목록 예시</div>-->
-<!--            </div>-->
-        </div>
+            <div class="list-of-subject">
+                {{#Subject}}
+                    <div class="subjects">
+                        <h4 id="{{id}}-name">{{name}}</h4>
+                        <p id="{{id}}-startTime">{{startTime}}</p>
+                        <p id="{{id}}-finishTime">{{finishTime}}</p>
+                        <p id="{{id}}-credit">{{credit}}</p>
+                        <p id="{{id}}-day">{{day}}</p>
+                        <button onclick="add({{id}})" class="btn-primary" style="width: 100px; height: 30px">추가!</button>
+                    </div>
 
+                {{/Subject}}
+            </div>
     </div>
 </div>
 
 
-
-{{>layout/footer}}
+{{>layout/footerToSchedule}}

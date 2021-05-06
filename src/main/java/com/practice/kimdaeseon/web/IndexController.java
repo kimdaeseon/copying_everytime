@@ -3,6 +3,7 @@ package com.practice.kimdaeseon.web;
 import com.practice.kimdaeseon.service.board.BoardService;
 import com.practice.kimdaeseon.service.post.PostService;
 import com.practice.kimdaeseon.service.schedule.ScheduleService;
+import com.practice.kimdaeseon.service.subject.SubjectService;
 import com.practice.kimdaeseon.web.dto.PostListResponseDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,7 @@ public class IndexController {
     final public PostService postService;
     final public BoardService boardService;
     final public ScheduleService scheduleService;
+    final public SubjectService subjectService;
     @GetMapping("/")
     public String home(Model model){
         return "home";
@@ -91,6 +94,8 @@ public class IndexController {
     @GetMapping("/schedule/{scheduleName}")
     public String schedule(@PathVariable String scheduleName,Model model){
         model.addAttribute("Schedule", scheduleName);
+        model.addAttribute("Subject", subjectService.findAllSubject());
         return "schedule";
     }
+
 }
